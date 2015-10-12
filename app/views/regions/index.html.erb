@@ -2,6 +2,9 @@
 
 <ul>
   <% @regions.each do |region| %>
-  <li><%= link_to region.region_name, region_path(region) %></li>
+  <li><%= link_to region.region_name, region_path(region) %> <%= link_to 'Edit', edit_region_path(region) %> <%= link_to 'Delete', region_path(region), data: {confirm: "Gaia Protect Us (delete)?", method: "delete"}%></li>
   <% end %>
 </ul>
+
+
+<%= link_to "New Region", new_region_path %>
