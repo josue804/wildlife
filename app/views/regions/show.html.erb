@@ -1,1 +1,15 @@
 <h1>Home Page for <%= @region.region_name %></h1>
+
+<% if @region.animals.any? %>
+  <h4>Animals Sighted Here:</h4>
+  <ul>
+    <% @region.animals.each do |animal| %>
+      <li><%= link_to animal.species %></li>
+    <% end %>
+  </ul>
+  <% else %>
+    <p>No animals sighted in <%= @region.region_name %></p>
+  <% end %>
+
+
+<p><%= link_to 'Add a Animal', new_region_animal_path(@region)</p>
